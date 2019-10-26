@@ -1,7 +1,7 @@
 # React Native Wheel Picker Simple
 
 ![](https://img.shields.io/npm/v/react-native-wheel-picker-simple)
-![](https://img.shields.io/npm/l/https://img.shields.io/npm/v/react-native-wheel-picker-simple)
+![](https://img.shields.io/npm/l/react-native-wheel-picker-simple)
 
 A simple Wheel Picker, rendered with native components on Android and iOS. For iOS, pickerIOS is used. Forked from [react-native-wheel-picker-android](https://github.com/KalonTech/ReactNativeWheelPicker).
 
