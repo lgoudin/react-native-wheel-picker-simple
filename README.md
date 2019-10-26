@@ -7,11 +7,23 @@ A simple Wheel Picker, rendered with native components on Android and iOS. For i
 
 ![](https://img.shields.io/badge/-feature-blue) This picker works inside scrollViews.
 
+![screencast](screencast.gif)
 
 ## Installation
-`yarn add react-native-wheel-picker-simple`
 
-![screencast](screencast.gif)
+1. Install using yarn or npm
+
+```
+npm install react-native-wheel-picker-simple --save
+yarn add react-native-wheel-picker-simple
+```
+
+2. Link and don't forget to reinstall your app
+
+```
+react-native link react-native-wheel-picker-simple
+```
+
 
 ## Usage
 
