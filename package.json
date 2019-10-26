@@ -1,11 +1,11 @@
 {
-  "name": "react-native-wheel-picker-android",
+  "name": "react-native-wheel-picker-simple",
   "version": "2.0.5",
   "description": "Simple Wheel Picker for Android to use with react-native",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ElekenAgency/ReactNativeWheelPicker.git"
+    "url": "git+https://github.com/saravanabalagi/react_native_wheel_picker_simple.git"
   },
   "keywords": [
     "react-component",
@@ -16,12 +16,12 @@
     "date-picker",
     "date-wheel-picker"
   ],
-  "author": "Artem Kosiakevych <artem.kosiakevych@gmail.com>",
+  "author": "Saravanabalagi Ramachandran",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ElekenAgency/ReactNativeWheelPicker/issues"
+    "url": "https://github.com/saravanabalagi/react_native_wheel_picker_simple/issues"
   },
-  "homepage": "https://github.com/ElekenAgency/ReactNativeWheelPicker",
+  "homepage": "https://github.com/saravanabalagi/react_native_wheel_picker_simple",
   "dependencies": {
     "moment": "2.22.0"
   }

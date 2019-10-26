@@ -1,142 +1,76 @@
-# React native wheel picker V2
-<p>
-<img src="http://img.shields.io/npm/v/react-native-wheel-picker-android.svg" />
-<img src="https://img.shields.io/npm/dm/react-native-wheel-picker-android.svg" />
-<img src="https://img.shields.io/npm/dt/react-native-wheel-picker-android.svg" />
-</p>
+# React Native Wheel Picker Simple
 
-A simple Wheel Picker for Android (For IOs is used PickerIOS)
+![](https://img.shields.io/npm/v/react-native-wheel-picker-simple)
+![](https://img.shields.io/npm/l/https://img.shields.io/npm/v/react-native-wheel-picker-simple)
+
+A simple Wheel Picker, rendered with native components on Android and iOS. For iOS, pickerIOS is used. Forked from [react-native-wheel-picker-android](https://github.com/KalonTech/ReactNativeWheelPicker).
+
+![](https://img.shields.io/badge/-feature-blue) This picker works inside scrollViews.
 
 
 ## Installation
-`yarn add react-native-wheel-picker-android`
+`yarn add react-native-wheel-picker-simple`
 
-![](./src/assets/pickerAndroid.gif)
-![](./src/assets/pickerIos.gif)
+![screencast](screencast.gif)
 
-# Usage
+## Usage
 
 ```js
-
-import { WheelPicker, TimePicker, DatePicker } from 'react-native-wheel-picker-android'
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  Button
-} from 'react-native';
-
-const wheelPickerData = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
-
-class MyPicker extends Component {
-  state = {
-    selectedItem: 0,
-  }
-
-  onItemSelected = selectedItem => {
-    this.setState({ selectedItem })
-  }
-
-  onPress = () => {
-    this.setState({ selectedItem: 3 })
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-      <Button title={'Select third element'} onPress={this.onPress}/>
-      <Text>Selected position: {this.state.selectedItem}</Text>
-      <WheelPicker 
-        selectedItem={this.state.selectedItem}
-        data={wheelPickerData} 
-        onItemSelected={this.onItemSelected}/>
-      </View>
-    );
-  }
-}
-
-module.exports = MyPicker;
+<View style={wheelPickerWrapperStyle}>
+  <WheelPicker
+    itemStyle={{
+      marginTop: -30,
+      backgroundColor: '#111111',
+      color: '#EEEEEE',
+      fontSize: 12,
+      fontFamily: "YourFontName"
+    }}
+    selectedItemTextFontFamily={'YourFontName'}
+    itemTextFontFamily={'YourFontName'}
+    selectedItemTextSize={12}
+    itemTextSize={12}
+    selectedItemTextColor={'#EEEEEE'}
+    indicatorColor={'#999999'}
+    selectedItem={selectedIndex}
+    data={onAddItem ? itemsModified : items}
+    onItemSelected={this.onItemSelected} />
+</View>
 
 ```
 
-## Props
+## iOS Specific style
 
-| Prop  | Default  | Type | Description |
-| :------------ |:---------------:| :---------------:| :-----|
-| onItemSelected | - | `func` | Returns selected position |
-| data | - | `Array<string>` | Data array  |
-| isCyclic | false | `bool` | Make Wheel Picker cyclic |
-| selectedItemTextColor | black | `string` | Wheel Picker's selected Item text color  |
-| selectedItemTextSize | 16 | `number` | Wheel Picker's selected Item text size  |
-| selectedItemTextFontFamily | - | `font-family` | Wheel Picker's selected Item font  |
-| itemTextColor | grey | `string` | Wheel Picker's Item Text Color  |
-| itemTextSize | 16 | `number` | Wheel Picker's Item text size  |
-| itemTextFontFamily | - | `font-family` | Wheel Picker's Item font  |
-| selectedItem | 0 | `number` | Current item position |
-| initPosition | 0 | `number` | Initial item position |
-| indicatorColor | black | `string` | Indicator color  |
-| hideIndicator | - | `boolean` | Hide indicator |
-| indicatorWidth | 1 | `number` | Indicator width |
-| backgroundColor | transparent | `string` | Wheel Picker background color  |
+`itemStyle` prop is applied only to iOS.
 
-# Time Picker
 
-![](./src/assets/timePickerAndroid.gif)
-![](./src/assets/timePickerIos.gif)
+## Android Specific style
+
+You can add styles conditionally based on OS
 
 ```js
-onTimeSelected = date => {}
-...
-<TimePicker onTimeSelected={this.onTimeSelected}/>
-
+let wheelPickerWrapperStyle = [gs.centerChildren, gs.row, gs.centerAlongFlex];
+if(Platform.OS === 'android')
+  wheelPickerWrapperStyle.push(s.wheelPickerWrapperAndroid;
 ```
 
-## Props
+For more info, please refer to the parent [repo](https://github.com/KalonTech/ReactNativeWheelPicker)
 
-| Prop  | Default  | Type | Description |
-| :------------ |:---------------:| :---------------:| :-----|
-| ...WheelPicker props | - | - | All style WheelPicker props |
-| initDate | current date | `Date` | Initial date  |
-| onTimeSelected | - | `func` | Callback with selected time |
-| hours | [1,2,3,4...] | `Array<string>` | Custom hours array  |
-| minutes | [00,05,10,15...] | `Array<string>` | Custom minutes array  |
-| format24 | false | `boolean` | Time format  |
+## Limitations
 
-# Date Picker
+- iOS Date Picker is not customizable i.e. background color, fonts, etc. cannot be changed. No dark theme 😞
 
-For IOs DatePickerIOS is used
+- iOS Picker line color cannot be changed 😟. At least it looks and feels okay in iOS, unlike the date picker.
 
-![](./src/assets/datePickerAndroid.gif)
-![](./src/assets/datePickerIos.gif)
+## Contribution
+**Issues** are welcome. Please add a screenshot, if not screencast, of bug and code snippet. Quickest way to solve issue is to reproduce it on one of the examples.
 
-```js
-onDateSelected = date => {}
-...
-<DatePicker onDateSelected={this.onDateSelected}/>
+Pull requests are very welcome.
 
-```
+1. Fork the repo
+1. Create new branch with feature name as branch name
+1. Check if things work with a jupyter notebook
+1. Raise a pull request
 
-## Props
+## Licence
 
-| Prop  | Default  | Type | Description |
-| :------------ |:---------------:| :---------------:| :-----|
-| [DatePickerIOS props](https://facebook.github.io/react-native/docs/datepickerios#props) | - | - | All DatePickerIOS props (IOS only) |
-| initDate | current date | `Date` | Initial date  |
-| onDateSelected | - | `func` | Callback with selected date |
-| days | [1,2,3,4...] | `Array<string>` | Custom days array (Android only)  |
-| hours | [1,2,3,4...] | `Array<string>` | Custom hours array (Android only)  |
-| minutes | [00,05,10,15...] | `Array<string>` | Custom minutes array (Android only)  |
-| format24 | false | `boolean` | Time format (Android only) |
-| startDate | current date | `Date` | Min Date (Android only) |
-| daysCount | 365 | `number` | Days count to display from start date (Android only) |
-| hideDate | false | `boolean` | Hide days picker (Android only) |
-| hideHours | false | `boolean` | Hide hours picker (Android only) |
-| hideMinutes | false | `boolean` | Hide minutes picker (Android only) |
-| hideAM | false | `boolean` | Hide time format picker (Android only) |
-
-
-## Questions or suggestions?
-
-Feel free to [open an issue](https://github.com/ElekenAgency/ReactNativeWheelPicker/issues)
+Please see attached [Licence](LICENCE)
