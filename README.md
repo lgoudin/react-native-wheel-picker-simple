@@ -31,11 +31,14 @@ A simple Wheel Picker, rendered with native components on Android and iOS. For i
     itemTextSize={12}
     selectedItemTextColor={'#EEEEEE'}
     indicatorColor={'#999999'}
-    selectedItem={selectedIndex}
-    data={onAddItem ? itemsModified : items}
+    selectedItem={this.state.selectedIndex}
+    data={items}
     onItemSelected={this.onItemSelected} />
 </View>
+```
 
+```js
+onItemSelected = selectedIndex => { this.setState({selectedIndex}); };
 ```
 
 ## iOS Specific style
