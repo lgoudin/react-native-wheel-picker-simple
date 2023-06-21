@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/saravanabalagi/react_native_wheel_picker_simple",
   "dependencies": {
+    "@react-native-picker/picker": "^2.4.10",
     "moment": "2.22.0"
   }
 }
